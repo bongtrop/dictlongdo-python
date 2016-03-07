@@ -17,11 +17,10 @@ def translate(word, dtype="NECTEC Lexitron Dictionary EN-TH"):
     content = r.content
 
     m = re.search(r"[<]b[>]"+dtype+r"[<][/]b[>][<]table border[=]1 width[=]100[%][>](.+?)[<][/]table[>]", content)
-
+    res = []
     if m:
         words = re.findall(r"[<]tr[>](.+?)[<][/]tr[>]", m.group(1))
 
-        res = []
         for word in words:
             m = re.search(r"[<]td width[=]40[%][>](.+?)[<][/]td[>][<]td[>](.+?)[<][/]td[>]", word)
             if m:
