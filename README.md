@@ -4,7 +4,7 @@ Dict Longdo API from http://dict.longdo.com/mobile.php?search=[word]
 
 Written by Pongsakorn Sommalai bongtrop@gmail.com.
 
-All code is under a BSD-style license, see LICENSE for details.
+All code is under DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE, see LICENSE for details.
 
 Source: [https://github.com/bongtrop/python-dictlongdo.git](https://github.com/bongtrop/python-dictlongdo.git)
 
