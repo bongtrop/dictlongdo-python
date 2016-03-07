@@ -12,7 +12,7 @@ import re
 def removeTagHtml(text):
     return re.sub('<[^<]+?>', '', text)
 
-def en2thai(word, dtype="NECTEC Lexitron Dictionary EN-TH"):
+def translate(word, dtype="NECTEC Lexitron Dictionary EN-TH"):
     r = requests.get("http://dict.longdo.com/mobile.php?search="+word)
     content = r.content
 

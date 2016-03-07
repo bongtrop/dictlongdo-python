@@ -8,14 +8,14 @@ Description: Server to translate en2thai and return it by json
 
 # Default
 import json
-import api
+import pydictlongdo
 
 # Web Server
 from twisted.web.server import Site
 from twisted.web.resource import Resource
 from twisted.internet import reactor
 
-class en2th(Resource):
+class Longdo(Resource):
     isLeaf = True
 
     def render_GET(self, request):
@@ -23,10 +23,10 @@ class en2th(Resource):
         if "word" not in request.args:
             return json.dumps({"status": "fail", "data": "Please define args word."})
 
-        return json.dumps({"status": "success", "data": api.en2thai(request.args["word"][0])})
+        return json.dumps({"status": "success", "data": pydictlongdo.translate(request.args["word"][0])})
 
 
-resource = en2th()
+resource = Longdo()
 factory = Site(resource)
 reactor.listenTCP(10001, factory)
 reactor.run()
