@@ -25,7 +25,7 @@ which will install the library into python's site-packages directory.
     >>> import pydictlongdo
     >>> pydictlongdo.translate([word], dtype=[dict type])
 
-dict type example "NECTEC Lexitron Dictionary EN-TH", "Longdo Approved EN-TH"
+dict type example "NECTEC Lexitron Dictionary EN-TH", "Longdo Approved EN-TH" default is "NECTEC Lexitron Dictionary EN-TH"
 
 return type is list
 
