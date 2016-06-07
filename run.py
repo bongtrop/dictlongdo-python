@@ -21,9 +21,10 @@ class Longdo(Resource):
     def render_GET(self, request):
         request.responseHeaders.addRawHeader(b"content-type", b"application/json")
         if "word" not in request.args:
-            return json.dumps({"status": "fail", "data": "Please define args word."})
+            request.setResponseCode(402)
+            return json.dumps({"error": "Please define args word."})
 
-        return json.dumps({"status": "success", "data": pydictlongdo.translate(request.args["word"][0])})
+        return json.dumps(pydictlongdo.translate(request.args["word"][0]))
 
 
 resource = Longdo()
