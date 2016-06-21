@@ -28,10 +28,3 @@ which will install the library into python's site-packages directory.
 dict type example "NECTEC Lexitron Dictionary EN-TH", "Longdo Approved EN-TH" default is "NECTEC Lexitron Dictionary EN-TH"
 
 return type is list
-
-## Extra
-You can use this on my server
-
-URL: [http://pongsakorn.xyz:10001/?word=cat](http://pongsakorn.xyz:10001/?word=cat)
-
-It return in json format
