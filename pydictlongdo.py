@@ -15,6 +15,7 @@ def removeTagHtml(text):
 def translate(word, dtype="NECTEC Lexitron Dictionary EN-TH"):
     r = requests.get("http://dict.longdo.com/mobile.php?search="+word)
     content = r.content
+    content = content.decode("utf-8")
 
     m = re.search(r"[<]b[>]"+dtype+r"[<][/]b[>][<]table border[=]1 width[=]100[%][>](.+?)[<][/]table[>]", content)
     res = []
