@@ -8,6 +8,7 @@ Description: Api for connect to Longdo Dict Mobile http://dict.longdo.com/mobile
 
 import requests
 import re
+import html
 
 def removeTagHtml(text):
     return re.sub('<[^<]+?>', '', text)
@@ -16,6 +17,7 @@ def translate(word, dtype="NECTEC Lexitron Dictionary EN-TH"):
     r = requests.get("http://dict.longdo.com/mobile.php?search="+word)
     content = r.content
     content = content.decode("utf-8")
+    content = html.unescape(content)
 
     m = re.search(r"[<]b[>]"+dtype+r"[<][/]b[>][<]table border[=]1 width[=]100[%][>](.+?)[<][/]table[>]", content)
     res = []
@@ -25,8 +27,8 @@ def translate(word, dtype="NECTEC Lexitron Dictionary EN-TH"):
         for word in words:
             m = re.search(r"[<]td width[=]40[%][>](.+?)[<][/]td[>][<]td[>](.+?)[<][/]td[>]", word)
             if m:
-                w = removeTagHtml(m.group(1))
-                m = removeTagHtml(m.group(2)).split(", ")[0]
+                w = removeTagHtml(m.group(1)).strip()
+                m = removeTagHtml(m.group(2)).split(", ")[0].strip()
                 res.append({"word": w, "meaning": m})
 
 
